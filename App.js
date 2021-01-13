@@ -1,114 +1,104 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+/* ////////////////////// IMPORTS ////////////////////// */
+/* ////////////////////// IMPORTS ////////////////////// */
 
-import React from 'react';
+import React from 'react'
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+    SafeAreaView,
+    StatusBar
+} from 'react-native'
+import { WorldClock } from './components/tabs/WorldClock'
+import { Alarms } from './components/tabs/Alarms'
+import { app } from './components/design/Style'
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native'
+import { BlurView, VibrancyView } from "@react-native-community/blur";
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+import { View, Text, TouchableOpacity } from 'react-native';
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-export default App;
+const Tab = createBottomTabNavigator();
+
+function NavigationBar({ state, descriptors, navigation }) {
+    const focusedOptions = descriptors[state.routes[state.index].key].options;
+
+    if (focusedOptions.tabBarVisible === false) {
+        return null;
+    }
+
+    return (
+        <View style={[ app.navigationBar ]}>
+            {state.routes.map((route, index) => {
+                const { options } = descriptors[route.key];
+                const label =
+                    options.tabBarLabel !== undefined
+                        ? options.tabBarLabel
+                        : options.title !== undefined
+                            ? options.title
+                            : route.name;
+
+                const isFocused = state.index === index;
+
+                const onPress = () => {
+                    const event = navigation.emit({
+                        type: 'tabPress',
+                        target: route.key,
+                        canPreventDefault: true,
+                    });
+
+                    if (!isFocused && !event.defaultPrevented) {
+                        navigation.navigate(route.name);
+                    }
+                };
+
+                const onLongPress = () => {
+                    navigation.emit({
+                        type: 'tabLongPress',
+                        target: route.key,
+                    });
+                };
+
+                return (
+                    <TouchableOpacity
+                        accessibilityRole="button"
+                        accessibilityState={isFocused ? { selected: true } : {}}
+                        accessibilityLabel={options.tabBarAccessibilityLabel}
+                        testID={options.tabBarTestID}
+                        onPress={onPress}
+                        onLongPress={onLongPress}
+                        style={{ flex: 1 }}
+                    >
+                        <Text style={{ color: isFocused ? '#0044ff' : '#222' }}>
+                            {label}
+                        </Text>
+                    </TouchableOpacity>
+                );
+            })}
+        </View>
+    );
+}
+
+// ...
+
+
+
+
+
+export default function App() {
+    return (
+        <NavigationContainer>
+            <StatusBar barStyle={'dark-content'} translucent={false} />
+            {/* <SafeAreaView style={[app.window]} forceInset={{ 'top': 'never' }}>
+                
+            </SafeAreaView> */}
+
+<Tab.Navigator tabBar={props => <NavigationBar {...props} />}>
+                <Tab.Screen key="1" name="World Clock" component={WorldClock} />
+                <Tab.Screen key="2" name="Alarms" component={Alarms} />
+            </Tab.Navigator>
+            
+        </NavigationContainer>
+    )
+}
+
