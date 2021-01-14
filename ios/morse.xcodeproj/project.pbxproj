@@ -11,17 +11,18 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		160E83EB25B090AF0049574D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E83EA25B090AF0049574D /* File.swift */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* morseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* morseTests.m */; };
 		2F5E488657FA3E12956C4E9D /* libPods-morse-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92227C1138D0D8CD13DBB644 /* libPods-morse-tvOSTests.a */; };
+		313D990C4D5543EF81F52DE1 /* circular-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5223845972B64F4983A25A55 /* circular-black.otf */; };
 		470FD32C93D159CF721DABC9 /* libPods-morse-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30EE0CAB3DC614A75D92C5 /* libPods-morse-tvOS.a */; };
 		494CD1E2999FFD35C2C4ACD2 /* libPods-morse-morseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7265C7765170A86861BBA0C /* libPods-morse-morseTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		D80732F0F742738F95D1A65A /* libPods-morse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCF8FB9B13EFA6D3E6D6C7B /* libPods-morse.a */; };
-		313D990C4D5543EF81F52DE1 /* circular-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5223845972B64F4983A25A55 /* circular-black.otf */; };
 		B4228E7645C6434294BB4655 /* circular-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 91CAD6BDBE1540F484313CEC /* circular-bold.otf */; };
+		D80732F0F742738F95D1A65A /* libPods-morse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCF8FB9B13EFA6D3E6D6C7B /* libPods-morse.a */; };
 		F7AE2AF2C7534C5D8A4909D1 /* circular-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E3B5DB216DC44279A2306BA /* circular-medium.otf */; };
 /* End PBXBuildFile section */
 
@@ -54,14 +55,19 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = morse/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = morse/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = morse/main.m; sourceTree = "<group>"; };
+		160E83E925B090AF0049574D /* morse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "morse-Bridging-Header.h"; sourceTree = "<group>"; };
+		160E83EA25B090AF0049574D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		1E3B5DB216DC44279A2306BA /* circular-medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "circular-medium.otf"; path = "../assets/fonts/circular-medium.otf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* morse-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "morse-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* morse-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "morse-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3161122CC271D93C7F4BFFEA /* Pods-morse-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morse-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-morse-tvOS/Pods-morse-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4C7CCA0308C8B29F840E731D /* Pods-morse-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morse-tvOS.release.xcconfig"; path = "Target Support Files/Pods-morse-tvOS/Pods-morse-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		5223845972B64F4983A25A55 /* circular-black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "circular-black.otf"; path = "../assets/fonts/circular-black.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = morse/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8462C00985EC3CF1B02D6F95 /* Pods-morse-morseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morse-morseTests.release.xcconfig"; path = "Target Support Files/Pods-morse-morseTests/Pods-morse-morseTests.release.xcconfig"; sourceTree = "<group>"; };
 		881872E1247B65A4AC622897 /* Pods-morse-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morse-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-morse-tvOSTests/Pods-morse-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		8B30EE0CAB3DC614A75D92C5 /* libPods-morse-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-morse-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91CAD6BDBE1540F484313CEC /* circular-bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "circular-bold.otf"; path = "../assets/fonts/circular-bold.otf"; sourceTree = "<group>"; };
 		92227C1138D0D8CD13DBB644 /* libPods-morse-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-morse-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A285C66656D200EBBDBECACA /* Pods-morse-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morse-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-morse-tvOSTests/Pods-morse-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7265C7765170A86861BBA0C /* libPods-morse-morseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-morse-morseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,9 +76,6 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FCCF8FB9B13EFA6D3E6D6C7B /* libPods-morse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-morse.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5223845972B64F4983A25A55 /* circular-black.otf */ = {isa = PBXFileReference; name = "circular-black.otf"; path = "../assets/fonts/circular-black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		91CAD6BDBE1540F484313CEC /* circular-bold.otf */ = {isa = PBXFileReference; name = "circular-bold.otf"; path = "../assets/fonts/circular-bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1E3B5DB216DC44279A2306BA /* circular-medium.otf */ = {isa = PBXFileReference; name = "circular-medium.otf"; path = "../assets/fonts/circular-medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		12E04EE84B75423E8ADA8C74 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5223845972B64F4983A25A55 /* circular-black.otf */,
+				91CAD6BDBE1540F484313CEC /* circular-bold.otf */,
+				1E3B5DB216DC44279A2306BA /* circular-medium.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* morse */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +178,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				160E83EA25B090AF0049574D /* File.swift */,
 				13B07FAE1A68108700A75B9A /* morse */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* morseTests */,
@@ -172,6 +186,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				EBBFC2FFFF37F327D2E9C3F8 /* Pods */,
 				12E04EE84B75423E8ADA8C74 /* Resources */,
+				160E83E925B090AF0049574D /* morse-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -201,20 +216,8 @@
 				A285C66656D200EBBDBECACA /* Pods-morse-tvOSTests.debug.xcconfig */,
 				881872E1247B65A4AC622897 /* Pods-morse-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		12E04EE84B75423E8ADA8C74 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				5223845972B64F4983A25A55 /* circular-black.otf */,
-				91CAD6BDBE1540F484313CEC /* circular-bold.otf */,
-				1E3B5DB216DC44279A2306BA /* circular-medium.otf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -312,7 +315,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1230;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -590,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				160E83EB25B090AF0049574D /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +635,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E1224293CDFA293BCA46F5CE /* Pods-morse-morseTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -654,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8462C00985EC3CF1B02D6F95 /* Pods-morse-morseTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = morseTests/Info.plist;
@@ -687,6 +693,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = morse;
+				SWIFT_OBJC_BRIDGING_HEADER = "morse-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -709,6 +716,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = morse;
+				SWIFT_OBJC_BRIDGING_HEADER = "morse-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
