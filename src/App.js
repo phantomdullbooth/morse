@@ -8,17 +8,14 @@ import { WorldClock } from './views/clock/WorldClock'
 import { NavigationBar } from './Navigation'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import database from './db/db';
-import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider';
+import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider'
+import database from './database/index';
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
     const isDarkMode = Appearance.getColorScheme() === 'dark' ? true : false
 
-    useEffect(() => {
-        console.log(Appearance.getColorScheme())
-    })
     
     return (
         <NavigationContainer>

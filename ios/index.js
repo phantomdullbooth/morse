@@ -1,12 +1,11 @@
 import { Database } from '@nozbe/watermelondb'
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite'
 
-import alarms from '../models/schema'
+import schema from '../models/schema'
 import UserAlarm from '../models/UserAlarm'
 
 const adapter = new SQLiteAdapter({
-    schema: alarms,
-    // synchronous: true
+    schema
 })
 
 const database = new Database({

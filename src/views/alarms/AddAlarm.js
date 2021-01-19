@@ -4,8 +4,9 @@ import React, { useState } from 'react'
 import { Alert, Modal, Platform, Pressable, SafeAreaView, Switch, Text, TextInput, View } from 'react-native'
 import { app, base, buttonType, text } from '../../style'
 import DateTimePicker from '@react-native-community/datetimepicker'
-import alarms from '../../models/schema'
-import { useDatabase } from '@nozbe/watermelondb/hooks';
+import { useDatabase } from '@nozbe/watermelondb/hooks'
+import { useEffect } from 'react';
+import { Q } from '@nozbe/watermelondb'
 
 
 
@@ -13,35 +14,40 @@ import { useDatabase } from '@nozbe/watermelondb/hooks';
 
 export function AddAlarm(props) {
     const database = useDatabase()
-    const [alarmTitle, setAlarmTitle] = useState('')
+    const alarmsCollection = database.collections.get('ualarms')
+    const [title, setTitle] = useState('')
     const [willSnooze, setWillSnooze] = useState(false)
-
     const [isTitleEditable, setIsTitleEditable] = useState(false)
 
     function toggleWillSnooze() {
         setWillSnooze(!willSnooze)
     }
 
-
-
-
-
-
-    async function handleSubmit() {
+    async function createAlarm() {
         await database.action(async () => {
-            const alarms = database.collections.get('alarms')
-            console.log(alarms)
-
             try {
-                return await alarms.create((alarm) => {
-                    alarm.title = alarmTitle
+                const newAlarm = alarmsCollection.create(alarm => {
+                    alarm.title = title
                 })
             } catch (error) {
-                console.error(message)
+                console.error(error)
             }
         })
     }
 
+    async function deleteAlarms() {
+        await database.action(async () => {
+            await alarmsCollection.query(Q.where('title', 'Seeds')).destroyAllPermanently()
+        })
+    }
+
+    async function fetchAlarms() {
+        console.log(await alarmsCollection.query().fetch())
+    }
+
+    useEffect(() => {
+        fetchAlarms()
+    })
 
     return (
         <SafeAreaView style={[base.window]} forceInset={{ 'top': 'never' }}>
@@ -52,10 +58,11 @@ export function AddAlarm(props) {
                         ? <TextInput
                             multiline={true}
                             maxLength={35}
+                            onChangeText={setTitle}
                             placeholder="Untitled Alarm"
                             style={[app.h1, app.headspaceTitle]}
-                            value={alarmTitle}
-                            onChangeText={setAlarmTitle} />
+                            value={title}
+                             />
                         : <Pressable style={[app.headspaceTitle]} onPress={() => setIsTitleEditable(true)}>
                             <Text style={[app.h1, app.headspaceTitle, text.standby]}>Untitled Alarm</Text>
                         </Pressable>}
@@ -69,16 +76,6 @@ export function AddAlarm(props) {
 
                 <View style={[app.bulletOption]}>
                     <Text style={{ fontWeight: '600', fontSize: 25 }}>Time</Text>
-
-                    <DateTimePicker
-                        style={{ flex: 1 }}
-                        testID="dateTimePicker"
-                        value={date}
-                        mode="time"
-                        is24Hour={true}
-                        display="inline"
-                        onChange={onChange}
-                    />
                 </View>
 
 
@@ -86,17 +83,11 @@ export function AddAlarm(props) {
                 <View style={[app.bulletOption]}>
                     <Text style={{ fontWeight: '600', fontSize: 25 }}>Snooze</Text>
 
-                    <Switch
-                        onValueChange={toggleSnooze}
-                        value={isSnoozeEnabled} />
                 </View>
 
                 <View style={[app.bulletOption]}>
                     <Text style={{ fontWeight: '600', fontSize: 25 }}>Notification</Text>
 
-                    <Switch
-                        onValueChange={toggleSnooze}
-                        value={isSnoozeEnabled} />
                 </View>
 
 
@@ -131,7 +122,7 @@ export function AddAlarm(props) {
 
 
 
-                <Pressable onPress={handleSubmit} style={[buttonType.lengthLong, buttonType.accept]}>
+                <Pressable onPress={createAlarm} style={[buttonType.lengthLong, buttonType.accept]}>
                     <Text style={[app.headspaceButtonText]}>Add Alarm</Text>
                 </Pressable>
             </View>

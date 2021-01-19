@@ -47,7 +47,7 @@ export function NavigationBar({ state, descriptors, navigation }) {
                 };
 
                 return (
-                    <>
+                    <React.Fragment key={index}>
                     <BlurView
                             //   style={styles.absolute}
                             blurType="dark"
@@ -71,7 +71,7 @@ export function NavigationBar({ state, descriptors, navigation }) {
                             <Text style={[nav.buttonTitle, {color: isFocused ? '#234BB8' : '#000000'}]}>{label}</Text>
                         </TouchableOpacity>
                         
-                        </>
+                        </React.Fragment>
                 );
             })}
         </View>

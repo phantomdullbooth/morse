@@ -3,15 +3,15 @@
 
 import { appSchema, tableSchema } from '@nozbe/watermelondb'
 
-export default alarms = appSchema({
-    version: 1,
+export default appSchema({
+    version: 2,
     tables: [
         tableSchema({
-            name: "user_alarms",
+            name: "ualarms",
             columns: [
-                { name: 'title', type: 'string', isOptional: true },
-                { name: 'spacetime', type: 'number'},
-                { name: 'frequency', type: 'string'}
+                { name: 'title', type: 'string' },
+                // { name: 'spacetime', type: 'number'},
+                // { name: 'frequency', type: 'string'}
             ]
         })
     ]
