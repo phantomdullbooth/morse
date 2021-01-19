@@ -10,9 +10,7 @@ import {
         Text,
         View
     } from 'react-native'
-import Moment from 'react-moment'
-import 'moment-timezone'
-import { app } from '../design/Style'
+import { app } from '../../style'
 
 export function WorldClock() {
     return (
@@ -20,7 +18,7 @@ export function WorldClock() {
             <View style={[app.headspace]}>
                 <View style={[app.headspaceHeadline]}>
                     <Text style={[app.h1]}>World {"\n"}Clock</Text>
-                    <Text style={[app.h3]}><Moment element={Text} interval={1000} format="dddd, MMMM DD, YYYY"></Moment></Text>
+                    <Text style={[app.h3]}></Text>
                 </View>
 
                 <Pressable onPress={() => Alert.alert('Add Location pressed')} style={[app.headspaceButton]}>
@@ -29,7 +27,7 @@ export function WorldClock() {
             </View>
 
             <ScrollView style={[app.mainContent]}>
-                <View style={[app.bullet]}>
+                {/* <View style={[app.bullet]} key="1">
                     <Text style={[app.bulletName]}>Russian Mission, {"\n"}Alaska</Text>
 
                     <View style={[app.spacetime]}>
@@ -38,7 +36,7 @@ export function WorldClock() {
                     </View>
                 </View>
 
-                <View style={[app.bullet]}>
+                <View style={[app.bullet]} key="2">
                     <Text style={[app.bulletName]}>San Francisco, {"\n"}California</Text>
 
                     <View style={[app.spacetime]}>
@@ -46,7 +44,7 @@ export function WorldClock() {
                         <Text style={[app.spacetimeDate]}>Today</Text>
                     </View>
                 </View>
-                <View style={[app.bullet]}>
+                <View style={[app.bullet]} key="3">
                     <Text style={[app.bulletName]}>London, {"\n"}United Kingdom</Text>
 
                     <View style={[app.spacetime]}>
@@ -54,38 +52,14 @@ export function WorldClock() {
                         <Text style={[app.spacetimeDate]}>Today</Text>
                     </View>
                 </View>
-                <View style={[app.bullet]}>
+                <View style={[app.bullet]} key="4">
                     <Text style={[app.bulletName]}>Russian Mission, {"\n"}Alaska</Text>
 
                     <View style={[app.spacetime]}>
                         <Text style={[app.spacetimeTime]}>12:41 am</Text>
                         <Text style={[app.spacetimeDate]}>Today</Text>
                     </View>
-                </View>
-                <View style={[app.bullet]}>
-                    <Text style={[app.bulletName]}>Russian Mission, {"\n"}Alaska</Text>
-
-                    <View style={[app.spacetime]}>
-                        <Text style={[app.spacetimeTime]}>12:41 am</Text>
-                        <Text style={[app.spacetimeDate]}>Today</Text>
-                    </View>
-                </View>
-                <View style={[app.bullet]}>
-                    <Text style={[app.bulletName]}>Russian Mission, {"\n"}Alaska</Text>
-
-                    <View style={[app.spacetime]}>
-                        <Text style={[app.spacetimeTime]}>12:41 am</Text>
-                        <Text style={[app.spacetimeDate]}>Today</Text>
-                    </View>
-                </View>
-                <View style={[app.bullet]}>
-                    <Text style={[app.bulletName]}>Russian Mission, {"\n"}Alaska</Text>
-
-                    <View style={[app.spacetime]}>
-                        <Text style={[app.spacetimeTime]}>12:41 am</Text>
-                        <Text style={[app.spacetimeDate]}>Today</Text>
-                    </View>
-                </View>
+                </View> */}
             </ScrollView>
         </SafeAreaView>
     )
