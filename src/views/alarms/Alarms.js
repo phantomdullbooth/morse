@@ -1,51 +1,105 @@
 /* ////////////////////// IMPORTS ////////////////////// */
+/* ////////////////////// IMPORTS ////////////////////// */
 
 import React, { useEffect, useState } from 'react'
-import { Alert, Modal, Pressable, SafeAreaView, ScrollView, Text, View } from 'react-native'
-import { app, base } from '../../style'
-import { AddAlarm } from './AddAlarm'
-import { Header } from '../../snacks/Header'
-import { Outlook } from '../../snacks/Outlook'
+import { FlatList, Modal, SafeAreaView, ScrollView, Text, View } from 'react-native'
+
+import { useDatabase } from '@nozbe/watermelondb/hooks'
 import moment from 'moment'
 
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-/* ////////////////////// RENDERS ALARM PAGE ////////////////////// */
+import { AddAlarm } from './AddAlarm'
+import { Header } from '../../snacks/Header'
+import { Separator, WeeklyOverview } from '../../Snacks';
+import { useColorScheme } from 'react-native-appearance'
+import { app, base, colors } from '../../design/style'
 
-export function Alarms() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [alarmGreeting, setAlarmGreeting] = useState('')
 
-    function determineAlarmGreeting() {
-        const hour = moment().format('h')
-        const period = moment().format('a')
 
-        if ( 4 >= hour < 12 && period === 'am') {
-            setAlarmGreeting('Good Morning')
-        } else if ((hour <= 12 && hour < 17) && period === 'pm') {
-            setAlarmGreeting('Good Afternoon')
-        } else if (hour >= 17 && hour < 22 && period === 'pm') {
-            setAlarmGreeting('Good Evening')
-        } else {
-            setAlarmGreeting('Good Evening')
-        }
-    }
+/* ////////////////////// INDIVIDUAL ALARM ////////////////////// */
+/* ////////////////////// INDIVIDUAL ALARM ////////////////////// */
 
-    
+function AlarmBullet(props) {
+    moment.locale('en')
 
+    const dt = props.item.spacetime
 
     useEffect(() => {
-        determineAlarmGreeting()
+        console.error(props.item.spacetime)
     })
 
     return (
-        <SafeAreaView style={[base.window]} forceInset={{ 'top': 'never' }}>
+        <View style={[app.bullet]} key="30">
+            <Text style={[app.bulletName]}>{props.item.title}</Text>
+
+
+            <View style={[app.spacetime]}>
+                <Text style={[app.spacetimeTime]}>{moment(dt).format('h:mm a')}</Text>
+                <Text style={[app.spacetimeDate]}>Weekdays</Text>
+            </View>
+        </View>
+    )
+}
+
+
+/* ////////////////////// ALARM LISTING ////////////////////// */
+/* ////////////////////// ALARM LISTING ////////////////////// */
+
+export function Alarms() {
+    const [alarmGreeting, setAlarmGreeting] = useState('')
+    const [fetchedAlarms, setFetchedAlarms] = useState([])
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
+    const database = useDatabase()
+    const alarms = database.collections.get('user_alarms')
+
+
+    async function fetchAlarms() {
+        try {
+            const response = await alarms.query().fetch()
+            setFetchedAlarms(response)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const isSchemeDark = useColorScheme() === 'dark' ? true : false
+
+
+    useEffect(() => {
+        function determineAlarmGreeting() {
+            const hour = moment().format('h')
+            const period = moment().format('a')
+
+            if (4 >= hour < 12 && period === 'am') {
+                setAlarmGreeting('Good Morning')
+            } else if (hour <= 5 && hour <= 12 && period === 'pm') {
+                setAlarmGreeting('Good Afternoon')
+            } else if (hour >= 17 && hour < 22 && period === 'pm') {
+                setAlarmGreeting('Good Evening')
+            } else {
+                setAlarmGreeting('Good Evening')
+            }
+        }
+
+        determineAlarmGreeting()
+        fetchAlarms()
+    }, [])
+
+    return (
+        <SafeAreaView
+            style={[
+                base.window,
+                { backgroundColor: isSchemeDark ? colors.black : colors.white }]} forceInset={{ 'top': 'never' }
+                }>
             <Header
                 optionArgs={true}
                 optionFunction={setIsModalOpen}
                 optionLabel="Add Alarm"
                 title={alarmGreeting}
                 subtitle="No alarms scheduled" />
-            
+
             <Modal
                 animationType="slide"
                 presentationStyle="pageSheet"
@@ -53,18 +107,24 @@ export function Alarms() {
                 <AddAlarm setIsModalOpen={setIsModalOpen} />
             </Modal>
 
-            <Outlook />
+            <WeeklyOverview />
 
-            <ScrollView style={[app.mainContent]}>
-                <View style={[app.bullet]} key="30">
-                    <Text style={[app.bulletName]}>Morning {'\n'}Meditation</Text>
+            <View style={[app.mainContent]}>
+                <FlatList
+                    data={fetchedAlarms}
+                    ItemSeparatorComponent={() =>  <Separator />}
+                    ListHeaderComponent={() =>  <Separator />}
+                    renderItem={({ item }) => <View style={[app.bullet]} key="30">
+                        <Text style={[app.bulletName]}>{item.title}</Text>
 
-                    <View style={[app.spacetime]}>
-                        <Text style={[app.spacetimeTime]}>6:45 am</Text>
-                        <Text style={[app.spacetimeDate]}>Weekdays</Text>
-                    </View>
-                </View>
-            </ScrollView>
+
+                        <View style={[app.spacetime]}>
+                            <Text style={[app.spacetimeTime]}>{moment().format('h:mm a')}</Text>
+                            <Text style={[app.spacetimeDate]}>Weekdays</Text>
+                        </View>
+                    </View>}
+                />
+            </View>
         </SafeAreaView>
     )
 }

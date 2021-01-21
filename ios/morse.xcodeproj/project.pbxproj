@@ -69,6 +69,7 @@
 		1633294925B744EA00481C8F /* index.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
 		1653737D25B69D8300705DF6 /* WatermelonDB.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WatermelonDB.xcodeproj; path = "../node_modules/@nozbe/watermelondb/native/ios/WatermelonDB.xcodeproj"; sourceTree = "<group>"; };
 		1E3B5DB216DC44279A2306BA /* circular-medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "circular-medium.otf"; path = "../assets/fonts/circular-medium.otf"; sourceTree = "<group>"; };
+		2C6B8C1ACA5F492C9356BB73 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* morse-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "morse-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* morse-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "morse-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3161122CC271D93C7F4BFFEA /* Pods-morse-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-morse-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-morse-tvOS/Pods-morse-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 				5223845972B64F4983A25A55 /* circular-black.otf */,
 				91CAD6BDBE1540F484313CEC /* circular-bold.otf */,
 				1E3B5DB216DC44279A2306BA /* circular-medium.otf */,
+				2C6B8C1ACA5F492C9356BB73 /* Feather.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

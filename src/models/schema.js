@@ -4,14 +4,14 @@
 import { appSchema, tableSchema } from '@nozbe/watermelondb'
 
 export default appSchema({
-    version: 2,
+    version: 6,
     tables: [
         tableSchema({
-            name: "ualarms",
+            name: "user_alarms",
             columns: [
                 { name: 'title', type: 'string' },
-                // { name: 'spacetime', type: 'number'},
-                // { name: 'frequency', type: 'string'}
+                { name: 'spacetime', type: 'number'},
+                { name: 'frequency', type: 'string'}
             ]
         })
     ]

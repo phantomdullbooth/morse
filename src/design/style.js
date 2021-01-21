@@ -1,7 +1,33 @@
 // /////////////////////// IMPORTS /////////////////////// //
 // /////////////////////// IMPORTS /////////////////////// //
 
-import { Appearance, StyleSheet } from 'react-native'
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import { Appearance } from 'react-native-appearance'
+
+// /////////////////////// APPEARANCE GUIDELINES /////////////////////// //
+// /////////////////////// APPEARANCE GUIDELINES /////////////////////// //
+
+export const colors = {
+    black: '#060606',
+    blackOnDark: '#0a0a0a',
+    red: '#ff0000',
+    white: '#f2f2f7',
+    whiteOnDark: '#cccccc',
+    whiteOnLight: '#eaeaea',
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // /////////////////////// APPEARANCE GUIDELINES /////////////////////// //
@@ -20,12 +46,29 @@ const color = {
 // /////////////////////// APP FUNDAMENTALS /////////////////////// //
 
 export const base = StyleSheet.create({
+    navBar: {
+        flex: 0.1,
+        flexDirection: 'row',
+        height: 75,
+        justifyContent: 'space-evenly',
+        borderTopWidth: 1
+    },
+    navButton: {
+        alignItems: 'center',
+        borderRadius: 5,
+        height: '85%',
+        justifyContent: 'center',
+        width: '45%',
+    },
     window: {
         flex: 1,
-        backgroundColor: isDarkMode ? color.black : color.white,
         alignItems: 'center'
     }
 })
+
+
+
+
 
 export const app = StyleSheet.create({
     header: {
@@ -51,19 +94,15 @@ export const app = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        borderTopWidth: 1,
         paddingTop: 25,
         paddingBottom: 25,
-        borderColor: isDarkMode ? color.darkGrey : '#e4e4e4'
     },
     bulletOption: {
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        borderTopWidth: 1,
         paddingTop: 25,
         paddingBottom: 25,
-        borderColor: '#e4e4e4'
     },
     headspace: {
         // backgroundColor: '#0044ff',
