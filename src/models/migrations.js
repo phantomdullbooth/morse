@@ -3,12 +3,12 @@ import { schemaMigrations, addColumns } from '@nozbe/watermelondb/Schema/migrati
 export default schemaMigrations({
     migrations: [
         {
-            toVersion: 6,
+            toVersion: 13,
             steps: [
                 addColumns({
                     table: 'user_alarms',
                     columns: [
-                        { name: 'frequency', type: 'string'}
+                        { name: 'datetime', type: 'string'}
                     ]
                 })
             ]

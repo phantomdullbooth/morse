@@ -1,9 +1,8 @@
 import React from 'react'
 import { Pressable, Text } from 'react-native'
-import { buttonType, text } from '../style'
-
 import { useColorScheme } from 'react-native-appearance'
-import { colors } from '../design/style'
+
+import { buttonType, colors, text } from '../design/style'
 
 export function LongButton(props) {
     const isSchemeDark = useColorScheme() === 'dark' ? true : false

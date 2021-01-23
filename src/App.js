@@ -1,51 +1,52 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { StatusBar } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import 'react-native-gesture-handler'
-
-import { Alarms } from './views/alarms/Alarms'
-import { WorldClock } from './views/clock/WorldClock'
-import { NavigationBar } from './NavigationBar'
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider'
-import database from './database/index';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance'
 
+import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider'
+import database from './database/index';
 
-const Tab = createBottomTabNavigator();
+import 'react-native-gesture-handler'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native'
+
+import { NavigationBar } from './components/NavigationBar'
+import { WorldClock } from './views/clock/WorldClock'
+import { Alarms } from './views/alarms/Alarms'
+
+import { base, colors } from './design/style'
+
+/* ////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////// */
 
 export default function App() {
+    const Tab = createBottomTabNavigator();
+    const isDarkMode = useColorScheme() === 'dark' ? true : false
+
+    const theme = {
+        backgroundColor: isDarkMode ? colors.black : colors.white,
+        statusBar: isDarkMode ? 'light-content' : 'dark-content'
+    }
+
     return (
         <AppearanceProvider>
             <NavigationContainer>
-                <StatusBar barStyle={useColorScheme() === 'light' ? 'dark-content' : 'light-content'} translucent={false} />
+                <StatusBar barStyle={ theme.statusBar } translucent={false} />
 
                 <DatabaseProvider database={database}>
                     <Tab.Navigator
-                        tabBarOptions={{ showIcon: true }}
                         initialRouteName="Alarms"
+                        sceneContainerStyle={[
+                            base.window,
+                            { backgroundColor: theme.backgroundColor }]}
                         tabBar={props => <NavigationBar {...props} />}>
                         <Tab.Screen
-                            key={1}
-                            name="Alarms"
-                            component={Alarms}
-                            options={{
-                                tabBarLabel: 'Alarms',
-                                tabBarIcon: () => (
-                                    null
-                                )
-                            }} />
-                        <Tab.Screen
-                            key={2}
+                            key={'74'}
                             name="Clock"
-                            component={WorldClock}
-                            options={{
-                                tabBarLabel: 'Clock',
-                                tabBarIcon: () => (
-                                    null
-                                )
-                            }} />
+                            component={WorldClock} />
+                        <Tab.Screen
+                            key={'72'}
+                            name="Alarms"
+                            component={Alarms} />
                     </Tab.Navigator>
                 </DatabaseProvider>
             </NavigationContainer>

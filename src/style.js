@@ -87,11 +87,6 @@ export const app = StyleSheet.create({
         lineHeight: 0,
         marginTop: -5
     },
-    spacetimeDate: {
-        fontSize: 15,
-        fontWeight: '600',
-        color: isDarkMode ? '#4E4E4E' : '#898989'
-    },
     headspaceButton: {
         alignItems: 'center',
         backgroundColor: color.black,

@@ -46,6 +46,30 @@ const color = {
 // /////////////////////// APP FUNDAMENTALS /////////////////////// //
 
 export const base = StyleSheet.create({
+    entry: {
+        alignItems: 'flex-start',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingTop: 25,
+        paddingBottom: 25,
+    },
+    entryTime: {
+        fontWeight: '600',
+        textAlign: 'right',
+        fontSize: 35,
+        lineHeight: 0,
+        marginTop: -5
+    },
+    entryTitle: {
+        fontSize: 25,
+        fontWeight: '800',
+        lineHeight: 0,
+        maxWidth: '55%'
+    },
+    entrySubtitle: {
+        fontSize: 15,
+        fontWeight: '600'
+    },
     navBar: {
         flex: 0.1,
         flexDirection: 'row',
@@ -56,9 +80,18 @@ export const base = StyleSheet.create({
     navButton: {
         alignItems: 'center',
         borderRadius: 5,
-        height: '85%',
+        height: '80%',
         justifyContent: 'center',
         width: '45%',
+    },
+    navButtonLabel: {
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    navButtonTitle: {
+        alignItems: 'center',
+        fontWeight: '600',
+        fontSize: 15
     },
     window: {
         flex: 1,
@@ -88,7 +121,6 @@ export const app = StyleSheet.create({
     // },
     mainContent: {
         flex: 1,
-        width: '90%'
     },
     bullet: {
         alignItems: 'center',
@@ -125,11 +157,6 @@ export const app = StyleSheet.create({
         fontSize: 35,
         lineHeight: 0,
         marginTop: -5
-    },
-    spacetimeDate: {
-        fontSize: 15,
-        fontWeight: '600',
-        color: isDarkMode ? '#4E4E4E' : '#898989'
     },
     headspaceButton: {
         alignItems: 'center',
@@ -210,6 +237,7 @@ export const app = StyleSheet.create({
 
 
     outlook: {
+        alignSelf: 'center',
         alignItems: 'flex-start',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
